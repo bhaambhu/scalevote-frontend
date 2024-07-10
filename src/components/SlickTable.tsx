@@ -4,7 +4,7 @@ import { HTMLProps } from "react";
 
 interface Column<T> {
   header: string;
-  accessor: keyof T;
+  accessor: keyof T | ((row: T) => ReactNode);
 }
 
 interface ListTableProps<T> extends React.HTMLAttributes<HTMLDivElement> {
@@ -44,7 +44,7 @@ const SlickTable = <T,>({
                   <tr>
                     {columns.map((column, index) => (
                       <th
-                        key={String(column.accessor)}
+                        key={index}
                         className={`px-2 py-1 md:px-3 md:py-2 text-start text-3xs lg:text-2xs text-gray-500 uppercase font-bold whitespace-nowrap ${
                           headingStyles ? headingStyles[index] : ""
                         }`}
@@ -59,12 +59,14 @@ const SlickTable = <T,>({
                     <tr key={rowIndex}>
                       {columns.map((column, cellIndex) => (
                         <td
-                          key={String(column.accessor)}
-                          className={`p-2 md:p-3 text-2xs lg:text-xs text-gray-800 ${
+                          key={cellIndex}
+                          className={`p-2 md:p-3 text-2xs text-gray-800 ${
                             dataStyles ? dataStyles[cellIndex] : ""
                           }`}
                         >
-                          {row[column.accessor] as ReactNode}
+                          {typeof column.accessor === 'function'
+                            ? column.accessor(row)
+                            : row[column.accessor] as ReactNode}
                         </td>
                       ))}
                     </tr>
