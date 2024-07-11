@@ -10,25 +10,25 @@ import { BASE_URL } from "./utils/constants";
 import Home from "./pages/Home";
 import ConstituencyResults from "./pages/ConstituencyResults";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <RootLayout />,
-      children: [
-        { path: BASE_URL + "", element: <Home /> },
-        { path: BASE_URL + "parties", element: <Parties /> },
-        { path: BASE_URL + "candidates", element: <Candidates /> },
-        { path: BASE_URL + "constituencies", element: <Constituencies /> },
-        { path: BASE_URL + "vote", element: <Vote /> },
-        { path: BASE_URL + "results/:state", element: <Results /> },
-        { path: BASE_URL + "results/:state/:constituency", element: <ConstituencyResults /> },
-        { path: BASE_URL + "*", element: <NotFound /> },
-      ],
-    },
-  ],
-  { basename: "/scalevote-frontend" }
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { path: BASE_URL + "", element: <Home /> },
+      { path: BASE_URL + "parties", element: <Parties /> },
+      { path: BASE_URL + "candidates", element: <Candidates /> },
+      { path: BASE_URL + "constituencies", element: <Constituencies /> },
+      { path: BASE_URL + "vote", element: <Vote /> },
+      { path: BASE_URL + "results/:state", element: <Results /> },
+      {
+        path: BASE_URL + "results/:state/:constituency",
+        element: <ConstituencyResults />,
+      },
+      { path: BASE_URL + "*", element: <NotFound /> },
+    ],
+  },
+]);
 
 function App() {
   return <RouterProvider router={router} />;
