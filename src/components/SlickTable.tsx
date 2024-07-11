@@ -26,7 +26,7 @@ const SlickTable = <T,>({
   return (
     <div
       className={twMerge(
-        "bg-white w-full rounded-md shadow-ppfas flex flex-col h-fit border-[#E4E7EB] border-[0.5px]",
+        "bg-white w-full rounded-md shadow-ppfas flex flex-col h-fit border-[#E4E7EB] border-[0.5px] text-xs md:text-base",
         className
       )}
     >
