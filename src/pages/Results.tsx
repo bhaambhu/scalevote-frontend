@@ -5,6 +5,7 @@ import SlickTable from "../components/SlickTable";
 import { ConstituencyResult, GetStateResultsResponse } from "../utils/types";
 import { fetchStateResults } from "../utils/apiFunctions";
 import { Link, useParams } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 const Results: React.FC = () => {
   let { state } = useParams();
@@ -23,7 +24,10 @@ const Results: React.FC = () => {
     {
       header: "Constituency",
       accessor: (row: ConstituencyResult) => (
-        <Link to={"/results/" + state + "/" + row.constituency.name} className="font-bold text-blue-600">
+        <Link
+          to={BASE_URL + "results/" + state + "/" + row.constituency.name}
+          className="font-bold text-blue-600"
+        >
           {row.constituency.name}
         </Link>
       ),
