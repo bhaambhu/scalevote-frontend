@@ -26,12 +26,12 @@ const SlickTable = <T,>({
   return (
     <div
       className={twMerge(
-        "bg-white w-full rounded-md shadow-ppfas flex flex-col h-fit border-[#E4E7EB] border-[0.5px] text-xs md:text-base",
+        "bg-white w-full rounded-md shadow-ppfas flex flex-col h-fit border-gray-400 border-[1px] text-xs md:text-base",
         className
       )}
     >
       {heading && (
-        <div className="font-semibold flex p-2 border-b text-xs md:text-sm md:p-3 border-[#E4E7EB] tracking-wide">
+        <div className="font-semibold flex p-2 border-b text-xs md:text-sm md:p-3 border-gray-400 tracking-wide">
           {heading}
         </div>
       )}
@@ -39,7 +39,7 @@ const SlickTable = <T,>({
         <div className="-m-1.5 overflow-x-auto">
           <div className="p-1.5 min-w-full inline-block align-middle">
             <div className="overflow-hidden">
-              <table className="min-w-full divide-y">
+              <table className="min-w-full divide-y divide-gray-400">
                 <thead>
                   <tr>
                     {columns.map((column, index) => (
@@ -54,7 +54,7 @@ const SlickTable = <T,>({
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y">
+                <tbody className=" divide-gray-400 divide-y-[0.5px]">
                   {data.map((row, rowIndex) => (
                     <tr key={rowIndex}>
                       {columns.map((column, cellIndex) => (
@@ -64,9 +64,9 @@ const SlickTable = <T,>({
                             dataStyles ? dataStyles[cellIndex] : ""
                           }`}
                         >
-                          {typeof column.accessor === 'function'
+                          {typeof column.accessor === "function"
                             ? column.accessor(row)
-                            : row[column.accessor] as ReactNode}
+                            : (row[column.accessor] as ReactNode)}
                         </td>
                       ))}
                     </tr>

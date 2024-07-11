@@ -89,10 +89,20 @@ export const fetchStateResults = async (
 };
 
 export const fetchConstituencyResults = async (
+  state: string,
+  constituency: string
+): Promise<GetConstituencyResultsResponse> => {
+  const response = await axiosClient.get(
+    apiEndpoints.constituencyResults(state, constituency)
+  );
+  return response.data;
+};
+
+export const fetchConstituencyResultsByID = async (
   constituencyId: number
 ): Promise<GetConstituencyResultsResponse> => {
   const response = await axiosClient.get(
-    apiEndpoints.constituencyResults(constituencyId)
+    apiEndpoints.constituencyResultsById(constituencyId)
   );
   return response.data;
 };

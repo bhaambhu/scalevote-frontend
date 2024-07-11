@@ -21,6 +21,7 @@ export interface VoteCount {
   id: number;
   name: string;
   votes: number;
+  party: Party;
 }
 
 export interface WinningCandidate {
@@ -37,7 +38,7 @@ export interface WinningParty {
 
 export interface ConstituencyResult {
   margin: number;
-  constituency: string;
+  constituency: Constituency;
   voteCounts: VoteCount[];
   totalVotes: number;
   winningCandidate: WinningCandidate | null;

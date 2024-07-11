@@ -3,6 +3,7 @@ import { Candidate } from "../utils/types";
 import { fetchCandidates } from "../utils/apiFunctions";
 import SlickTable from "../components/SlickTable";
 import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
 
 const Candidates: React.FC = () => {
   const [candidates, setCandidates] = useState<Candidate[]>([]);
@@ -28,7 +29,7 @@ const Candidates: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="mb-4 italic text-center">List of Candidates</h1>
+      <PageHeader>List of Candidates</PageHeader>
       {loading ? (
         <Loader />
       ) : (

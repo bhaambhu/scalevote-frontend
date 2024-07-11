@@ -3,6 +3,7 @@ import { Party } from "../utils/types";
 import { fetchParties } from "../utils/apiFunctions";
 import SlickTable from "../components/SlickTable";
 import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
 
 const Parties: React.FC = () => {
   const [parties, setParties] = useState<Party[]>([]);
@@ -23,7 +24,7 @@ const Parties: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="mb-4 italic text-center">List of Parties</h1>
+      <PageHeader>List of Parties</PageHeader>
       {loading ? (
         <Loader />
       ) : (

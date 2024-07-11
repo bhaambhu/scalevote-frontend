@@ -3,6 +3,7 @@ import { Constituency } from "../utils/types";
 import { fetchConstituencies } from "../utils/apiFunctions";
 import SlickTable from "../components/SlickTable";
 import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
 
 const Constituencies: React.FC = () => {
   const [constituencies, setConstituencies] = useState<Constituency[]>([]);
@@ -23,7 +24,7 @@ const Constituencies: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="mb-4 italic text-center">List of Constituencies</h1>
+      <PageHeader>List of Constituencies</PageHeader>
       {loading ? (
         <Loader />
       ) : (

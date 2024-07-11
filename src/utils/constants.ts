@@ -12,7 +12,9 @@ export const apiEndpoints = {
   parties: "/api/parties",
   partyById: (id: number) => `/api/parties/${id}`,
   stateResults: (state: string) => `/api/results/state/${state}`,
-  constituencyResults: (constituencyId: number) =>
+  constituencyResults: (state: string, constituency: string) =>
+    `/api/results/state/${state}/${constituency}`,
+  constituencyResultsById: (constituencyId: number) =>
     `/api/results/constituency/${constituencyId}`,
   castVote: "/api/votes/cast",
   bulkCastVote: "/api/votes/bulk-cast",
