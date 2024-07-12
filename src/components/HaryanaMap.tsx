@@ -11452,58 +11452,66 @@ export default function HaryanaConstituencyMap({
       </g>
       <g id="Nummern">
         <text
-          transform="matrix(1 0 0 1 245.324 345.8643)"
+          transform="matrix(1 0 0 1 175.324 345.8643)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Hisar"] || "None"}
         </text>
         <text
-          transform="matrix(1 0 0 1 424.8264 284.1025)"
+          transform="matrix(1 0 0 1 380.8264 284.1025)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Karnal"] || "None"}
         </text>
         <text
-          transform="matrix(1 0 0 1 354.2522 215.7314)"
+          transform="matrix(1 0 0 1 325.2522 215.7314)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Kurukshetra"] || "None"}
         </text>
         <text
-          transform="matrix(1 0 0 1 162.9998 284)"
+          transform="matrix(1 0 0 1 70.9998 284)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Sirsa"] || "None"}
         </text>
         <text
-          transform="matrix(1 0 0 1 435.2522 139.4521)"
+          transform="matrix(1 0 0 1 410.2522 139.4521)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Ambala"] || "None"}
         </text>
         <text
-          transform="matrix(1 0 0 1 424.8264 524.1055)"
+          transform="matrix(1 0 0 1 400.8264 524.1055)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Gurgaon"] || "None"}
         </text>
         <text
-          transform="matrix(1 0 0 1 488.2502 562.3096)"
+          transform="matrix(1 0 0 1 475.2502 562.3096)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Faridabad"] || "None"}
         </text>
         <text
-          transform="matrix(1 0 0 1 374.0002 452)"
+          transform="matrix(1 0 0 1 350.0002 452)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Rohtak"] || "None"}
         </text>
@@ -11511,13 +11519,15 @@ export default function HaryanaConstituencyMap({
           transform="matrix(1 0 0 1 220.886 479.126)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Bhiwani–Mahendragarh"] || "None"}
         </text>
         <text
-          transform="matrix(1 0 0 1 388.0002 363.2529)"
+          transform="matrix(1 0 0 1 360.0002 363.2529)"
           font-family="'ArialMT'"
           font-size="12"
+          className="pointer-events-none"
         >
           {constituencyTextMap["Sonipat"] || "None"}
         </text>

@@ -8,7 +8,6 @@ import Results from "./pages/Results";
 import NotFound from "./pages/NotFound";
 import { BASE_URL } from "./utils/constants";
 import Home from "./pages/Home";
-import ConstituencyResults from "./pages/ConstituencyResults";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +22,7 @@ const router = createBrowserRouter([
       { path: BASE_URL + "results/:state", element: <Results /> },
       {
         path: BASE_URL + "results/:state/:constituency",
-        element: <ConstituencyResults />,
+        element: <Results />,
       },
       { path: BASE_URL + "*", element: <NotFound /> },
     ],

@@ -9,8 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "static": "vite build && touch ./docs/.nojekyll",
-    "pub": "vite build && touch ./docs/.nojekyll && git add . && git commit -m '${npm_config_m}' && git push"
+    "static": "vite build && touch ./docs/.nojekyll"
   },
   "dependencies": {
     "axios": "^1.7.2",

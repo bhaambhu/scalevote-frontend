@@ -27,11 +27,11 @@ export const apiEndpoints = {
 };
 
 const iconMap: { [key: string]: React.ReactNode } = {
-  Lotus: <img src={BJP_LOGO} />,
-  Broom: <img src={AAP_LOGO} />,
-  Hand: <img src={HAND_LOGO} />,
-  Elephant: <img src={BSP_LOGO} />,
-  Bicycle: <img src={SP_LOGO} />,
+  Lotus: <img src={BJP_LOGO} className="aspect-square" />,
+  Broom: <img src={AAP_LOGO} className="aspect-square" />,
+  Hand: <img src={HAND_LOGO} className="aspect-square" />,
+  Elephant: <img src={BSP_LOGO} className="aspect-square" />,
+  Bicycle: <img src={SP_LOGO} className="aspect-square" />,
 };
 
 export const getPartyIcon = (symbol: string): React.ReactNode => {
