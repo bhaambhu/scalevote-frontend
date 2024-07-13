@@ -95,154 +95,180 @@ const Results: React.FC = () => {
               </span>
             </div> */}
           </div>
-          <div className="flex">
-            {/* Haryana SVG Map */}
-            <div className="w-full aspect-square">
-              <HaryanaConstituencyMap
-                internalBordersColor={internalBordersColor}
-                stateOutlineColor={stateOutlineColor}
-                constituencyStyleMap={{
-                  Ambala:
-                    constituencyCommonStyle +
-                    (constituency == "Ambala" ? selectedConstituencyStyle : ""),
-                  "Bhiwani–Mahendragarh":
-                    constituencyCommonStyle +
-                    (constituency == "Bhiwani–Mahendragarh"
-                      ? selectedConstituencyStyle
-                      : ""),
-                  Faridabad:
-                    constituencyCommonStyle +
-                    (constituency == "Faridabad"
-                      ? selectedConstituencyStyle
-                      : ""),
-                  Gurgaon:
-                    constituencyCommonStyle +
-                    (constituency == "Gurgaon"
-                      ? selectedConstituencyStyle
-                      : ""),
-                  Hisar:
-                    constituencyCommonStyle +
-                    (constituency == "Hisar" ? selectedConstituencyStyle : ""),
-                  Karnal:
-                    constituencyCommonStyle +
-                    (constituency == "Karnal" ? selectedConstituencyStyle : ""),
-                  Kurukshetra:
-                    constituencyCommonStyle +
-                    (constituency == "Kurukshetra"
-                      ? selectedConstituencyStyle
-                      : ""),
-                  Rohtak:
-                    constituencyCommonStyle +
-                    (constituency == "Rohtak" ? selectedConstituencyStyle : ""),
-                  Sirsa:
-                    constituencyCommonStyle +
-                    (constituency == "Sirsa" ? selectedConstituencyStyle : ""),
-                  Sonipat:
-                    constituencyCommonStyle +
-                    (constituency == "Sonipat"
-                      ? selectedConstituencyStyle
-                      : ""),
-                }}
-                constituencyTextMap={{
-                  Ambala: stateResults.constituencies.find(
-                    (constituency) => constituency.constituency.name == "Ambala"
-                  )?.winningParty?.name,
-                  Hisar: stateResults.constituencies.find(
-                    (constituency) => constituency.constituency.name == "Hisar"
-                  )?.winningParty?.name,
-                  "Bhiwani–Mahendragarh": stateResults.constituencies.find(
-                    (constituency) =>
-                      constituency.constituency.name == "Bhiwani–Mahendragarh"
-                  )?.winningParty?.name,
-                  Faridabad: stateResults.constituencies.find(
-                    (constituency) =>
-                      constituency.constituency.name == "Faridabad"
-                  )?.winningParty?.name,
-                  Gurgaon: stateResults.constituencies.find(
-                    (constituency) =>
-                      constituency.constituency.name == "Gurgaon"
-                  )?.winningParty?.name,
-                  Karnal: stateResults.constituencies.find(
-                    (constituency) => constituency.constituency.name == "Karnal"
-                  )?.winningParty?.name,
-                  Kurukshetra: stateResults.constituencies.find(
-                    (constituency) =>
-                      constituency.constituency.name == "Kurukshetra"
-                  )?.winningParty?.name,
-                  Rohtak: stateResults.constituencies.find(
-                    (constituency) => constituency.constituency.name == "Rohtak"
-                  )?.winningParty?.name,
-                  Sirsa: stateResults.constituencies.find(
-                    (constituency) => constituency.constituency.name == "Sirsa"
-                  )?.winningParty?.name,
-                  Sonipat: stateResults.constituencies.find(
-                    (constituency) =>
-                      constituency.constituency.name == "Sonipat"
-                  )?.winningParty?.name,
-                }}
-                onClickConstituency={(consName: string) =>
-                  navigate(BASE_URL + "results/" + state + "/" + consName)
-                }
-              />
-            </div>
-            <div className="w-full flex flex-col items-center gap-3">
-              <PageHeader>Overall State Results</PageHeader>
-              {/* Winner party card */}
-              <div className="w-fit p-3 border border-red-800 flex flex-col gap-3 rounded-sm">
-                {/* Icon */}
-                <div className="border border-red-800 flex justify-center p-3">
-                  Winning Party
-                </div>
-                <div className="border border-red-800 w-72 flex items-center justify-center">
-                  {getPartyIcon(stateResults?.winningParty.symbol)}
-                </div>
-                <div className="flex justify-center p-3 border border-red-800">
-                  {stateResults?.winningParty.name}
-                </div>
-                <div className="flex justify-center border border-red-800 p-3">
-                  Total Votes: {stateResults?.totalVotes}
-                </div>
+          <div className="flex flex-col">
+            <div className="flex ">
+              {/* Haryana SVG Map */}
+              <div className="w-full aspect-square">
+                <HaryanaConstituencyMap
+                  internalBordersColor={internalBordersColor}
+                  stateOutlineColor={stateOutlineColor}
+                  constituencyStyleMap={{
+                    Ambala:
+                      constituencyCommonStyle +
+                      (constituency == "Ambala"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    "Bhiwani–Mahendragarh":
+                      constituencyCommonStyle +
+                      (constituency == "Bhiwani–Mahendragarh"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    Faridabad:
+                      constituencyCommonStyle +
+                      (constituency == "Faridabad"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    Gurgaon:
+                      constituencyCommonStyle +
+                      (constituency == "Gurgaon"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    Hisar:
+                      constituencyCommonStyle +
+                      (constituency == "Hisar"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    Karnal:
+                      constituencyCommonStyle +
+                      (constituency == "Karnal"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    Kurukshetra:
+                      constituencyCommonStyle +
+                      (constituency == "Kurukshetra"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    Rohtak:
+                      constituencyCommonStyle +
+                      (constituency == "Rohtak"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    Sirsa:
+                      constituencyCommonStyle +
+                      (constituency == "Sirsa"
+                        ? selectedConstituencyStyle
+                        : ""),
+                    Sonipat:
+                      constituencyCommonStyle +
+                      (constituency == "Sonipat"
+                        ? selectedConstituencyStyle
+                        : ""),
+                  }}
+                  constituencyTextMap={{
+                    Ambala: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Ambala"
+                    )?.winningParty?.name,
+                    Hisar: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Hisar"
+                    )?.winningParty?.name,
+                    "Bhiwani–Mahendragarh": stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Bhiwani–Mahendragarh"
+                    )?.winningParty?.name,
+                    Faridabad: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Faridabad"
+                    )?.winningParty?.name,
+                    Gurgaon: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Gurgaon"
+                    )?.winningParty?.name,
+                    Karnal: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Karnal"
+                    )?.winningParty?.name,
+                    Kurukshetra: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Kurukshetra"
+                    )?.winningParty?.name,
+                    Rohtak: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Rohtak"
+                    )?.winningParty?.name,
+                    Sirsa: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Sirsa"
+                    )?.winningParty?.name,
+                    Sonipat: stateResults.constituencies.find(
+                      (constituency) =>
+                        constituency.constituency.name == "Sonipat"
+                    )?.winningParty?.name,
+                  }}
+                  onClickConstituency={(consName: string) =>
+                    navigate(BASE_URL + "results/" + state + "/" + consName)
+                  }
+                />
               </div>
-            </div>
-            {constituencyResult && (
               <div className="w-full flex flex-col items-center gap-3">
-                <PageHeader>
-                  {constituencyResult.constituency.name} Results
-                </PageHeader>
+                <PageHeader>Overall State Results</PageHeader>
                 {/* Winner party card */}
-                <div className="w-full p-3 border border-red-800 flex flex-col gap-3 rounded-sm">
+                <div className="w-fit p-3 border border-red-800 flex flex-col gap-3 rounded-sm">
                   {/* Icon */}
-                  {constituencyResult.winningParty ? (
-                    <div className="flex flex-col gap-3 items-center">
-                      <div className="border w-full border-red-800 flex justify-center p-3">
-                        Winning Party
-                      </div>
-                      <div className="border border-red-800 w-full  flex items-center justify-center">
-                        <div className="w-72 max-w-72 flex justify-center">
-                          {getPartyIcon(constituencyResult.winningParty.symbol)}
-                        </div>
-                      </div>
-                      <div className="flex justify-center p-3 w-full border border-red-800">
-                        {constituencyResult.winningParty.name}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex justify-center p-3 border border-red-800">
-                      No Winning Party
-                    </div>
-                  )}
-                  <div className="flex justify-center border border-red-800 p-3">
-                    Total Votes: {constituencyResult.totalVotes}
+                  <div className="border border-red-800 flex justify-center p-3">
+                    Winning Party
                   </div>
-                  {constituencyResult.totalVotes > 0 && (
-                    <SlickTable
-                      columns={consResultColumns}
-                      data={constituencyResult.voteCounts}
-                    />
-                  )}
+                  <div className="border border-red-800 w-72 flex items-center justify-center">
+                    {getPartyIcon(stateResults?.winningParty.symbol)}
+                  </div>
+                  <div className="flex justify-center p-3 border border-red-800">
+                    {stateResults?.winningParty.name}
+                  </div>
+                  <div className="flex justify-center border border-red-800 p-3">
+                    Total Votes: {stateResults?.totalVotes}
+                  </div>
                 </div>
               </div>
-            )}
+            </div>
+            <div>
+              {constituencyResult && (
+                <div className="w-full flex flex-col items-center gap-3">
+                  <PageHeader>
+                    {constituencyResult.constituency.name} Results
+                  </PageHeader>
+                  {/* Winner party card */}
+                  <div className=" p-3 border border-red-800 flex flex-row gap-3 rounded-sm">
+                    {/* Icon */}
+                    <div>
+                      {constituencyResult.winningParty ? (
+                        <div className="flex flex-col gap-3 items-center">
+                          {/* <div className="border w-full border-red-800 flex justify-center p-3">
+                          Winning Party
+                        </div> */}
+                          <div className="flex justify-center p-3 w-full border border-red-800">
+                            Winning Party:{" "}
+                            {constituencyResult.winningParty.name}
+                          </div>
+                          <div className="border border-red-800 w-full  flex items-center justify-center">
+                            <div className="w-72 max-w-72 flex justify-center">
+                              {getPartyIcon(
+                                constituencyResult.winningParty.symbol
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="flex justify-center p-3 border border-red-800">
+                          No Winning Party
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <div className="flex justify-center border border-red-800 p-3 mb-3">
+                        Total Votes: {constituencyResult.totalVotes}
+                      </div>
+                      {constituencyResult.totalVotes > 0 && (
+                        <SlickTable
+                          columns={consResultColumns}
+                          data={constituencyResult.voteCounts}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           {/* <SlickTable
             columns={columns}
