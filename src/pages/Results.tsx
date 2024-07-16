@@ -80,7 +80,7 @@ const Results: React.FC = () => {
 
   const constituencyCommonStyle = " hover:fill-yellow-100 cursor-pointer ";
   const selectedConstituencyStyle =
-    " fill-yellow-500 hover:fill-yellow-500 cursor-pointer";
+    " fill-yellow-400 hover:fill-yellow-400 cursor-pointer";
 
   const navigate = useNavigate();
 
