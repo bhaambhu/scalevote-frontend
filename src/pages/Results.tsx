@@ -70,13 +70,17 @@ const Results: React.FC = () => {
   ];
 
   const consResultColumns = [
-    { header: "Candidate Name", accessor: "name" as keyof VoteCount },
+    {
+      header: "Candidate Name",
+      accessor: (row: VoteCount) => row.candidate.name,
+    },
     { header: "Votes", accessor: "votes" as keyof VoteCount },
-    { header: "Party", accessor: (row: VoteCount) => row.party.name },
+    { header: "Party", accessor: (row: VoteCount) => row.candidate.party.name },
   ];
 
   const constituencyCommonStyle = " hover:fill-yellow-100 cursor-pointer ";
-  const selectedConstituencyStyle = " fill-yellow-500 ";
+  const selectedConstituencyStyle =
+    " fill-yellow-500 hover:fill-yellow-500 cursor-pointer";
 
   const navigate = useNavigate();
 
@@ -103,45 +107,45 @@ const Results: React.FC = () => {
                 stateOutlineColor={stateOutlineColor}
                 constituencyStyleMap={{
                   Ambala:
-                    constituencyCommonStyle +
-                    (constituency == "Ambala" ? selectedConstituencyStyle : ""),
+                    constituency == "Ambala"
+                      ? selectedConstituencyStyle
+                      : constituencyCommonStyle,
                   "Bhiwani–Mahendragarh":
-                    constituencyCommonStyle +
-                    (constituency == "Bhiwani–Mahendragarh"
+                    constituency == "Bhiwani–Mahendragarh"
                       ? selectedConstituencyStyle
-                      : ""),
+                      : constituencyCommonStyle,
                   Faridabad:
-                    constituencyCommonStyle +
-                    (constituency == "Faridabad"
+                    constituency == "Faridabad"
                       ? selectedConstituencyStyle
-                      : ""),
+                      : constituencyCommonStyle,
                   Gurgaon:
-                    constituencyCommonStyle +
-                    (constituency == "Gurgaon"
+                    constituency == "Gurgaon"
                       ? selectedConstituencyStyle
-                      : ""),
+                      : constituencyCommonStyle,
                   Hisar:
-                    constituencyCommonStyle +
-                    (constituency == "Hisar" ? selectedConstituencyStyle : ""),
+                    constituency == "Hisar"
+                      ? selectedConstituencyStyle
+                      : constituencyCommonStyle,
                   Karnal:
-                    constituencyCommonStyle +
-                    (constituency == "Karnal" ? selectedConstituencyStyle : ""),
+                    constituency == "Karnal"
+                      ? selectedConstituencyStyle
+                      : constituencyCommonStyle,
                   Kurukshetra:
-                    constituencyCommonStyle +
-                    (constituency == "Kurukshetra"
+                    constituency == "Kurukshetra"
                       ? selectedConstituencyStyle
-                      : ""),
+                      : constituencyCommonStyle,
                   Rohtak:
-                    constituencyCommonStyle +
-                    (constituency == "Rohtak" ? selectedConstituencyStyle : ""),
-                  Sirsa:
-                    constituencyCommonStyle +
-                    (constituency == "Sirsa" ? selectedConstituencyStyle : ""),
-                  Sonipat:
-                    constituencyCommonStyle +
-                    (constituency == "Sonipat"
+                    constituency == "Rohtak"
                       ? selectedConstituencyStyle
-                      : ""),
+                      : constituencyCommonStyle,
+                  Sirsa:
+                    constituency == "Sirsa"
+                      ? selectedConstituencyStyle
+                      : constituencyCommonStyle,
+                  Sonipat:
+                    constituency == "Sonipat"
+                      ? selectedConstituencyStyle
+                      : constituencyCommonStyle,
                 }}
                 constituencyTextMap={{
                   Ambala: stateResults.constituencies.find(
@@ -193,8 +197,10 @@ const Results: React.FC = () => {
                 <div className="border border-red-800 flex justify-center p-3">
                   Winning Party
                 </div>
-                <div className="border border-red-800 w-72 flex items-center justify-center">
-                  {getPartyIcon(stateResults?.winningParty.symbol)}
+                <div className="border border-red-800 w-full  flex items-center justify-center">
+                  <div className="w-40 max-w-40 flex justify-center">
+                    {getPartyIcon(stateResults.winningParty.symbol)}
+                  </div>
                 </div>
                 <div className="flex justify-center p-3 border border-red-800">
                   {stateResults?.winningParty.name}
@@ -218,7 +224,7 @@ const Results: React.FC = () => {
                         Winning Party
                       </div>
                       <div className="border border-red-800 w-full  flex items-center justify-center">
-                        <div className="w-72 max-w-72 flex justify-center">
+                        <div className="w-40 max-w-40 flex justify-center">
                           {getPartyIcon(constituencyResult.winningParty.symbol)}
                         </div>
                       </div>

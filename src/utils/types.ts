@@ -18,10 +18,8 @@ export interface Candidate {
 }
 
 export interface VoteCount {
-  id: number;
-  name: string;
+  candidate: Candidate;
   votes: number;
-  party: Party;
 }
 
 export interface WinningCandidate {
