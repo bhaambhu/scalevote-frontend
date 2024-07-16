@@ -43,15 +43,20 @@ export interface ConstituencyResult {
   winningParty: WinningParty | null;
 }
 
+export interface PartySeats {
+  seats: number;
+  party: Party;
+}
+
 export interface StateResult {
   constituencies: ConstituencyResult[];
   totalVotes: number;
   winningParty: {
-    id: number;
-    name: string;
     symbol: string;
-    votes: number;
+    name: string;
+    id: number;
   };
+  partySeats: PartySeats[];
 }
 
 // Response interfaces for each endpoint

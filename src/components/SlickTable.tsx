@@ -26,12 +26,12 @@ const SlickTable = <T,>({
   return (
     <div
       className={twMerge(
-        "bg-white w-full rounded-md shadow-ppfas flex flex-col h-fit border-gray-400 border-[1px] text-xs md:text-base",
+        "bg-white w-full rounded-md shadow-ppfas flex flex-col h-fit border-gray-500 border-[1px] text-xs md:text-base",
         className
       )}
     >
       {heading && (
-        <div className="font-semibold flex p-2 border-b text-xs md:text-sm md:p-3 border-gray-400 tracking-wide">
+        <div className="font-semibold flex p-2 border-b text-xs md:text-sm md:p-3 border-gray-500 tracking-wide">
           {heading}
         </div>
       )}
@@ -45,7 +45,7 @@ const SlickTable = <T,>({
                     {columns.map((column, index) => (
                       <th
                         key={index}
-                        className={`px-2 py-1 md:px-3 md:py-2 text-start text-3xs lg:text-2xs text-gray-500 uppercase font-bold whitespace-nowrap ${
+                        className={`px-2 py-1 md:px-3 md:py-2 text-start text-sm  text-gray-700 uppercase font-bold whitespace-nowrap ${
                           headingStyles ? headingStyles[index] : ""
                         }`}
                       >
@@ -60,7 +60,7 @@ const SlickTable = <T,>({
                       {columns.map((column, cellIndex) => (
                         <td
                           key={cellIndex}
-                          className={`p-2 md:p-3 text-2xs text-gray-800 ${
+                          className={`p-2 md:p-3 text-sm text-gray-800 ${
                             dataStyles ? dataStyles[cellIndex] : ""
                           }`}
                         >

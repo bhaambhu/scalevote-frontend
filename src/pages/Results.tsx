@@ -11,6 +11,8 @@ import { fetchStateResults } from "../utils/apiFunctions";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { BASE_URL, getPartyIcon } from "../utils/constants";
 import HaryanaConstituencyMap from "../components/HaryanaMap";
+import ConstituencyResults from "../components/ConstituencyResults";
+import StateResults from "../components/StateResults";
 
 const Results: React.FC = () => {
   const { state, constituency } = useParams<{
@@ -41,43 +43,6 @@ const Results: React.FC = () => {
   const stateOutlineColor = colorBrickRed;
   const internalBordersColor = colorBrickRed;
 
-  const columns = [
-    {
-      header: "Constituency",
-      accessor: (row: ConstituencyResult) => (
-        <Link
-          to={BASE_URL + "results/" + state + "/" + row.constituency.name}
-          className="font-bold text-blue-600"
-        >
-          {row.constituency.name}
-        </Link>
-      ),
-    },
-    {
-      header: "Total Votes",
-      accessor: "totalVotes" as keyof ConstituencyResult,
-    },
-    {
-      header: "Winning Candidate",
-      accessor: (row: ConstituencyResult) =>
-        row.winningCandidate?.name ?? "N/A",
-    },
-    {
-      header: "Winning Party",
-      accessor: (row: ConstituencyResult) => row.winningParty?.name ?? "N/A",
-    },
-    { header: "Margin", accessor: "margin" as keyof ConstituencyResult },
-  ];
-
-  const consResultColumns = [
-    {
-      header: "Candidate Name",
-      accessor: (row: VoteCount) => row.candidate.name,
-    },
-    { header: "Votes", accessor: "votes" as keyof VoteCount },
-    { header: "Party", accessor: (row: VoteCount) => row.candidate.party.name },
-  ];
-
   const constituencyCommonStyle = " hover:fill-yellow-100 cursor-pointer ";
   const selectedConstituencyStyle =
     " fill-yellow-400 hover:fill-yellow-400 cursor-pointer";
@@ -99,9 +64,9 @@ const Results: React.FC = () => {
               </span>
             </div> */}
           </div>
-          <div className="flex">
+          <div className="flex gap-3 flex-wrap justify-center">
             {/* Haryana SVG Map */}
-            <div className="w-full aspect-square">
+            <div className="flex aspect-square p-2 md:p-3 justify-center items-center">
               <HaryanaConstituencyMap
                 internalBordersColor={internalBordersColor}
                 stateOutlineColor={stateOutlineColor}
@@ -189,71 +154,11 @@ const Results: React.FC = () => {
                 }
               />
             </div>
-            <div className="w-full flex flex-col items-center gap-3">
-              <PageHeader>Overall State Results</PageHeader>
-              {/* Winner party card */}
-              <div className="w-fit p-3 border border-red-800 flex flex-col gap-3 rounded-sm">
-                {/* Icon */}
-                <div className="border border-red-800 flex justify-center p-3">
-                  Winning Party
-                </div>
-                <div className="border border-red-800 w-full  flex items-center justify-center">
-                  <div className="w-40 max-w-40 flex justify-center">
-                    {getPartyIcon(stateResults.winningParty.symbol)}
-                  </div>
-                </div>
-                <div className="flex justify-center p-3 border border-red-800">
-                  {stateResults?.winningParty.name}
-                </div>
-                <div className="flex justify-center border border-red-800 p-3">
-                  Total Votes: {stateResults?.totalVotes}
-                </div>
-              </div>
-            </div>
             {constituencyResult && (
-              <div className="w-full flex flex-col items-center gap-3">
-                <PageHeader>
-                  {constituencyResult.constituency.name} Results
-                </PageHeader>
-                {/* Winner party card */}
-                <div className="w-full p-3 border border-red-800 flex flex-col gap-3 rounded-sm">
-                  {/* Icon */}
-                  {constituencyResult.winningParty ? (
-                    <div className="flex flex-col gap-3 items-center">
-                      <div className="border w-full border-red-800 flex justify-center p-3">
-                        Winning Party
-                      </div>
-                      <div className="border border-red-800 w-full  flex items-center justify-center">
-                        <div className="w-40 max-w-40 flex justify-center">
-                          {getPartyIcon(constituencyResult.winningParty.symbol)}
-                        </div>
-                      </div>
-                      <div className="flex justify-center p-3 w-full border border-red-800">
-                        {constituencyResult.winningParty.name}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex justify-center p-3 border border-red-800">
-                      No Winning Party
-                    </div>
-                  )}
-                  <div className="flex justify-center border border-red-800 p-3">
-                    Total Votes: {constituencyResult.totalVotes}
-                  </div>
-                  {constituencyResult.totalVotes > 0 && (
-                    <SlickTable
-                      columns={consResultColumns}
-                      data={constituencyResult.voteCounts}
-                    />
-                  )}
-                </div>
-              </div>
+              <ConstituencyResults constituencyResult={constituencyResult} />
             )}
+            <StateResults stateResults={stateResults} />
           </div>
-          {/* <SlickTable
-            columns={columns}
-            data={stateResults?.constituencies ?? []}
-          /> */}
         </>
       )}
     </div>
