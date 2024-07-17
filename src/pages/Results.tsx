@@ -76,10 +76,10 @@ const Results: React.FC = () => {
                 </Link>
                 {constituencyResult && (
                   <>
-                    <div className=" border-gray-500 font-mono flex justify-center p-1 rounded-md uppercase font-bold tracking-widest text-gray-700">
+                    <div className="cursor-default border-gray-500 font-mono flex justify-center p-1 rounded-md uppercase font-bold tracking-widest text-gray-700">
                       {">"}
                     </div>
-                    <div className=" border border-gray-500 flex  bg-white justify-center p-1 px-2 rounded-md uppercase font-bold tracking-widest text-gray-700">
+                    <div className="cursor-default border border-gray-500 flex  bg-white justify-center p-1 px-2 rounded-md uppercase font-bold tracking-widest text-gray-700">
                       {constituencyResult.constituency.name}
                     </div>
                   </>
