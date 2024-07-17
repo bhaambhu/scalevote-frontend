@@ -11,33 +11,21 @@ const RootLayout: React.FC = () => (
       <div className="flex gap-3 px-3 text-xs md:text-base flex-wrap justify-center items-center w-full">
         <div className="flex gap-3">
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "bg-yellow-500 border border-black p-1 px-2 rounded"
-                : "border border-black p-1 px-2 rounded"
-            }
+            className={({ isActive }) => ((isActive && "bg-yellow-500") + " border border-black p-1 px-2 rounded " + (!isActive && ("hover:bg-yellow-100")))}
             to={BASE_URL + "parties"}
           >
             Parties
           </NavLink>
 
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "bg-yellow-500 border border-black p-1 px-2 rounded"
-                : "border border-black p-1 px-2 rounded"
-            }
+            className={({ isActive }) => ((isActive && "bg-yellow-500") + " border border-black p-1 px-2 rounded " + (!isActive && ("hover:bg-yellow-100")))}
             to={BASE_URL + "candidates"}
           >
             Candidates
           </NavLink>
 
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "bg-yellow-500 border border-black p-1 px-2 rounded"
-                : "border border-black p-1 px-2 rounded"
-            }
+            className={({ isActive }) => ((isActive && "bg-yellow-500") + " border border-black p-1 px-2 rounded " + (!isActive && ("hover:bg-yellow-100")))}
             to={BASE_URL + "constituencies"}
           >
             Constituencies
@@ -45,22 +33,14 @@ const RootLayout: React.FC = () => (
         </div>
         <div className="flex gap-3">
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "bg-yellow-500 border border-black p-1 px-2 rounded"
-                : "border border-black p-1 px-2 rounded"
-            }
+            className={({ isActive }) => ((isActive && "bg-yellow-500") + " border border-black p-1 px-2 rounded " + (!isActive && ("hover:bg-yellow-100")))}
             to={BASE_URL + "vote"}
           >
             Cast Vote
           </NavLink>
 
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "bg-yellow-500 border border-black p-1 px-2 rounded"
-                : "border border-black p-1 px-2 rounded"
-            }
+            className={({ isActive }) => ((isActive && "bg-yellow-500") + " border border-black p-1 px-2 rounded " + (!isActive && ("hover:bg-yellow-100")))}
             to={BASE_URL + "results/Haryana"}
           >
             Results
